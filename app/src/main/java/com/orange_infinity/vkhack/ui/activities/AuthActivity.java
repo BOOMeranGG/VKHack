@@ -1,4 +1,4 @@
-package com.orange_infinity.vkhack.ui.layouts;
+package com.orange_infinity.vkhack.ui.activities;
 
 import android.content.Intent;
 import android.os.Bundle;

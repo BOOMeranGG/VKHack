@@ -1,4 +1,4 @@
-package com.orange_infinity.vkhack.ui.layouts;
+package com.orange_infinity.vkhack.ui.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -34,6 +35,10 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         checkIsUserAuthorized();
         setContentView(R.layout.activity_registration);
+        getWindow().setFlags(
+                WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN
+        );
 
         editLogin = findViewById(R.id.editLogin);
         editPassword = findViewById(R.id.editPassword);
@@ -56,7 +61,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     public void onClick(View v) {
         if (v.getId() == R.id.btnRegistration) {
             if (createAccount()) {
-                Intent intent = new Intent(this, FormActivity.class);
+                Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }

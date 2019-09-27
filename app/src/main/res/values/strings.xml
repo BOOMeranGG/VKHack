@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">VKHack</string>
+    <string name="edit_password">Введите ваш пароль</string>
+    <string name="edit_login">Введите вашу почту</string>
+    <string name="enter">Войти</string>
+    <string name="registration">Зарегестрироваться</string>
+    <string name="edit_nickname">Введите ваш никнейм</string>
 </resources>

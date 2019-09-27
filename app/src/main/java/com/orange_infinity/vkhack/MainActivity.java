@@ -2,8 +2,6 @@ package com.orange_infinity.vkhack;
 
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.orange_infinity.vkhack.ui.activities.BaseActivity;
 
 public class MainActivity extends BaseActivity {

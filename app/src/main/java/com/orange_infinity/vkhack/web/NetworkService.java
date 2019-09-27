@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class NetworkService {
 
-    private static final String BASE_URL = "http://419502a2.ngrok.io";
+    private static final String BASE_URL = "http://ca1d2f82.ngrok.io";
     private static NetworkService instance;
     private Retrofit retrofit;
 

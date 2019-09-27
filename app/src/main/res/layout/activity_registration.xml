@@ -17,7 +17,17 @@
         app:layout_constraintVertical_bias="0.44">
 
         <EditText
-            android:id="@+id/editNickname"
+            android:id="@+id/editName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:hint="@string/edit_nickname"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/editSurname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"

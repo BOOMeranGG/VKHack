@@ -24,7 +24,8 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
 
     private EditText editLogin;
     private EditText editPassword;
-    private EditText editNickname;
+    private EditText editName;
+    private EditText editSurname;
     private Button btnEnter;
     private WebController webController = new WebController();
 
@@ -36,7 +37,8 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
 
         editLogin = findViewById(R.id.editLogin);
         editPassword = findViewById(R.id.editPassword);
-        editNickname = findViewById(R.id.editNickname);
+        editName = findViewById(R.id.editName);
+        editSurname = findViewById(R.id.editSurname);
         btnEnter = findViewById(R.id.btnRegistration);
 
         btnEnter.setOnClickListener(this);
@@ -64,17 +66,19 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     private boolean createAccount() {
         String login = editLogin.getText().toString().trim();
         String password = editPassword.getText().toString();
-        String nickname = editNickname.getText().toString();
+        String name = editName.getText().toString();
+        String surname = editSurname.getText().toString();
 
         if (!StringUtils.isValidEmail(login)) {
             return false;
         }
 
-        UserPreferences.saveUserAuthData(this, password, login, nickname);
+        UserPreferences.saveUserAuthData(this, password, login, name + " " + surname);
         RegistrationDto regDto = new RegistrationDto();
         regDto.setEmail(login);
         regDto.setPassword(password);
-        regDto.setUsername(nickname);
+        regDto.setName(name);
+        regDto.setSurname(surname);
 
         webController.registry(regDto);
         Gson gson = new GsonBuilder()
@@ -82,7 +86,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                 .create();
         String json = gson.toJson(regDto);
         Log.d(MAIN_TAG, "You are creating a new account, login: " + regDto.getEmail() + ", password: "
-                + regDto.getPassword() + ", username: " + regDto.getUsername());
+                + regDto.getPassword() + ", username: " + regDto.getName() + " " + regDto.getSurname());
         Log.d(MAIN_TAG, "json: " + json);
         return true;
     }

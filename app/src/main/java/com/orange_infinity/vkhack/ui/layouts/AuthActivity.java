@@ -25,14 +25,14 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
 
         editLogin = findViewById(R.id.editLogin);
         editPassword = findViewById(R.id.editPassword);
-        btnEnter = findViewById(R.id.btnEnter);
+        btnEnter = findViewById(R.id.btnRegistration);
 
         btnEnter.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.btnEnter) {
+        if (v.getId() == R.id.btnRegistration) {
             String login = editLogin.getText().toString().trim();
             String password = editPassword.getText().toString();
 

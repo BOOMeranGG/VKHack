@@ -37,7 +37,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnEnter"
+        android:id="@+id/btnRegistration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAllCaps="false"

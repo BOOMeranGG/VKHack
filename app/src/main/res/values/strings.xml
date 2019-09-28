@@ -4,7 +4,8 @@
     <string name="edit_login">Введите вашу почту</string>
     <string name="enter">Войти</string>
     <string name="registration">Зарегестрироваться</string>
-    <string name="edit_nickname">Введите имя и фамилию</string>
+    <string name="edit_name">Введите имя</string>
+    <string name="edit_surname">Введите фамилию</string>
     <string name="name">Имя</string>
     <string name="surname">Фамилия</string>
     <string name="date_of_birthday">Дата рождения</string>

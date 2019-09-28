@@ -2,6 +2,7 @@ package com.orange_infinity.vkhack.web;
 
 import android.util.Log;
 
+import com.orange_infinity.vkhack.model.entity.dto.EditedData;
 import com.orange_infinity.vkhack.model.entity.dto.RegistrationDto;
 
 import io.reactivex.rxjava3.annotations.NonNull;
@@ -32,4 +33,25 @@ public class WebController {
                     }
                 });
     }
+
+    public void send_edited_data(String authKey ,EditedData data, int id){
+        NetworkService.getInstance()
+                .getRegistrationApi()
+                .sendEditedData(authKey ,data, id)
+                .enqueue(new Callback<String>() {
+                    @Override
+                    public void onResponse(@NonNull Call<String> call, @NonNull Response<String> response) {
+                        String responseStr = response.body();
+                        Log.d(MAIN_TAG, "Connect is correct! Response: " + responseStr
+                                + ", response code: " + response.code());
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<String> call, @NonNull Throwable t) {
+                        Log.d(MAIN_TAG, "Connect is incorrect ;( " + t.getLocalizedMessage());
+                        t.printStackTrace();
+                    }
+                });
+    }
+
 }

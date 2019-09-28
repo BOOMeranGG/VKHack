@@ -13,7 +13,7 @@ import android.widget.EditText;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.orange_infinity.vkhack.R;
-import com.orange_infinity.vkhack.data.preferences.UserPreferences;
+import com.orange_infinity.vkhack.data.preferences.SessionManager;
 import com.orange_infinity.vkhack.model.entity.dto.RegistrationDto;
 import com.orange_infinity.vkhack.utils.StringUtils;
 import com.orange_infinity.vkhack.web.WebController;
@@ -29,15 +29,17 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     private Button btnEnter;
     private WebController webController = new WebController();
 
+    SessionManager sessionManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        sessionManager = new SessionManager(this); // инициализация context для sharedPreferences
+
         checkIsUserAuthorized();
         setContentView(R.layout.activity_registration);
-        getWindow().setFlags(
-                WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN
-        );
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         editLogin = findViewById(R.id.editLogin);
         editPassword = findViewById(R.id.editPassword);
@@ -49,7 +51,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     }
 
     private void checkIsUserAuthorized() {
-        if (UserPreferences.isUserAuth(this)) {
+        if (sessionManager.isUserAuth()) {
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
             finish();
@@ -77,7 +79,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
             return false;
         }
 
-        UserPreferences.saveUserAuthData(this, password, login, name + " " + surname);
+        sessionManager.saveUserAuthData(password, login, name + " " + surname);
         RegistrationDto regDto = new RegistrationDto();
         regDto.setEmail(login);
         regDto.setPassword(password);
@@ -88,6 +90,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         Gson gson = new GsonBuilder()
                 .setPrettyPrinting()
                 .create();
+
         String json = gson.toJson(regDto);
         Log.d(MAIN_TAG, "You are creating a new account, login: " + regDto.getEmail() + ", password: "
                 + regDto.getPassword() + ", username: " + regDto.getName() + " " + regDto.getSurname());

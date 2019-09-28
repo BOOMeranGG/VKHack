@@ -42,15 +42,75 @@
 
     </androidx.appcompat.widget.Toolbar>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="horizontal"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp">
 
+        <FrameLayout
+            android:id="@+id/frameAvatar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:src="@drawable/standard_avatar"/>
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/mainInfoLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="15"
+            app:layout_constraintTop_toTopOf="@id/frameAvatar"
+            app:layout_constraintStart_toEndOf="@id/frameAvatar"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvName"
+                style="@style/standard_text"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/frameAvatar"
+                app:layout_constraintTop_toTopOf="@id/frameAvatar"
+                android:text="@string/name"/>
+
+            <EditText
+                android:id="@+id/editName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tvName"
+                app:layout_constraintStart_toStartOf="@id/tvName"/>
+
+            <TextView
+                android:id="@+id/tvSurname"
+                style="@style/standard_text"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/frameAvatar"
+                app:layout_constraintTop_toTopOf="@id/frameAvatar"
+                android:text="@string/surname"/>
+
+            <EditText
+                android:id="@+id/editSurname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tvName"
+                app:layout_constraintStart_toStartOf="@id/tvName"/>
+
+    </LinearLayout>
+
+
+
+    </LinearLayout>
 
     <include
         android:id="@+id/navigationView"

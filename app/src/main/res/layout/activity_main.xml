@@ -210,30 +210,66 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerSkills"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:id="@+id/skillsLayout"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
                 app:layout_constraintTop_toBottomOf="@id/additionalInfoLayout"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
+                android:paddingBottom="100dp"
+                android:orientation="vertical">
 
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-            </androidx.recyclerview.widget.RecyclerView>
+                    <include
+                        android:id="@+id/skill1"
+                        layout="@layout/skill_list" />
 
-            <ImageView
-                android:id="@+id/btnPlusSkill"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                app:layout_constraintTop_toBottomOf="@id/recyclerSkills"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginBottom="16dp"
-                android:src="@drawable/icon_plus_skill"/>
+                    <include
+                        android:id="@+id/skill2"
+                        layout="@layout/skill_list" />
+
+                    <include
+                        android:id="@+id/skill3"
+                        layout="@layout/skill_list" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <include
+                        android:id="@+id/skill4"
+                        layout="@layout/skill_list" />
+
+                    <include
+                        android:id="@+id/skill5"
+                        layout="@layout/skill_list" />
+
+                    <include
+                        android:id="@+id/skill6"
+                        layout="@layout/skill_list" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/btnPlusSkill"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@id/skillsLayout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="16dp"
+                    android:src="@drawable/icon_plus_skill"/>
+
+            </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -16,4 +16,9 @@
         android:icon="@drawable/icon_message_selector"
         android:title="" />
 
+    <item
+        android:id="@+id/nav_item_scanner"
+        android:icon="@drawable/icon_search_selector"
+        android:title="" />
+
 </menu>

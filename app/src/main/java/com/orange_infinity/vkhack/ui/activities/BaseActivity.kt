@@ -3,10 +3,15 @@ package com.orange_infinity.vkhack.ui.activities
 import android.content.Intent
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.common.api.CommonStatusCodes
+import com.google.android.gms.vision.barcode.Barcode
 import com.orange_infinity.vkhack.R
+import com.orange_infinity.vkhack.barcode.BarcodeCaptureActivity
+import com.orange_infinity.vkhack.utils.StringUtils.MAIN_TAG
 import kotlinx.android.synthetic.main.bottom_navigation_view.*
 
 private const val TAG = "BaseActivity"
+private const val RC_BARCODE_CAPTURE = 1
 
 abstract class BaseActivity(private val navNumber: Int) : AppCompatActivity() {
 
@@ -26,6 +31,13 @@ abstract class BaseActivity(private val navNumber: Int) : AppCompatActivity() {
                 R.id.nav_item_home -> MainActivity::class.java
                 R.id.nav_item_search -> EventActivity::class.java
                 R.id.nav_item_message -> MessengerActivity::class.java
+                R.id.nav_item_scanner -> {
+                    val intent = Intent(this, BarcodeCaptureActivity::class.java)
+                    intent.putExtra(BarcodeCaptureActivity.AutoFocus, true)
+                    intent.putExtra(BarcodeCaptureActivity.UseFlash, false)
+                    startActivityForResult(intent, RC_BARCODE_CAPTURE)
+                    null
+                }
                 else -> {
                     Log.e(TAG, "Unknown nav item clicked $it")
                     null
@@ -42,5 +54,19 @@ abstract class BaseActivity(private val navNumber: Int) : AppCompatActivity() {
             }
         }
         bottom_navigation_view.menu.getItem(navNumber).isChecked = true
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == RC_BARCODE_CAPTURE) {
+            if (resultCode == CommonStatusCodes.SUCCESS) {
+                if (data != null) {
+                    val barcode =
+                        data.getParcelableExtra<Barcode>(BarcodeCaptureActivity.BarcodeObject)
+                    Log.d(MAIN_TAG, "qr code result = ${barcode.displayValue}")
+                }
+            }
+        } else {
+            super.onActivityResult(requestCode, resultCode, data)
+        }
     }
 }

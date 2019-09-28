@@ -23,7 +23,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:hint="@string/edit_nickname"
+            android:hint="Введите ваше имя"
             android:inputType="text" />
 
         <EditText
@@ -33,7 +33,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:hint="@string/edit_nickname"
+            android:hint="Введите фамилию"
             android:inputType="text" />
 
         <EditText

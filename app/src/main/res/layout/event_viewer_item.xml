@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
+    android:background="@color/whitesh"
     android:layout_height="500dp">
 
     <ImageView
@@ -60,4 +61,13 @@
             android:text="Button2"/>
 
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginTop="6dp"
+        android:layout_height="1dp"
+        android:background="@color/gray"
+        android:layout_marginStart="16dp">
+
+    </View>
 </LinearLayout>

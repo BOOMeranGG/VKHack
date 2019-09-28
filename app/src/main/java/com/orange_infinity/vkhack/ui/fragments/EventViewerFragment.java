@@ -64,10 +64,10 @@ public class EventViewerFragment extends Fragment {
             tvEventName.setText(event.getEventName());
 
             TextView tvDate = eventView.findViewById(R.id.tvDate);
-            tvEventName.setText(event.getEventDate());
+            tvDate.setText(event.getEventDate());
 
             TextView tvDescription = eventView.findViewById(R.id.tvDescription);
-            tvEventName.setText(event.getEventDescription());
+            tvDescription.setText(event.getEventDescription());
         }
     }
 

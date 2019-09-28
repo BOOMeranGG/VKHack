@@ -112,16 +112,7 @@ public class MainActivity extends BaseActivity {
         data.setPhone_number(mPhone.getText().toString());
         data.setKey_abilities(mProfField.getText().toString());
 
-        //data.setPassword(sessionManager.getPassword());
-
-        webController.send_edited_data(getAuthToken(), data, 1);
-        Gson gson = new GsonBuilder()
-                .setPrettyPrinting().create();
-
-        String json = gson.toJson(data);
-        Log.d(MAIN_TAG, "You are creating a new account, login: " + data.getEmail() + ", password: "
-                + data.getPassword() + ", username: " + data.getName() + " " + data.getSurname());
-        Log.d(MAIN_TAG, "json: " + json);
+        webController.send_edited_data(getAuthToken(), data, sessionManager.getId());
 
         return  true;
     }

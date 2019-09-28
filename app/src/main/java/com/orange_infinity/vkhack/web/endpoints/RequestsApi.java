@@ -2,6 +2,7 @@ package com.orange_infinity.vkhack.web.endpoints;
 
 import com.orange_infinity.vkhack.model.entity.dto.EditedData;
 import com.orange_infinity.vkhack.model.entity.dto.RegistrationDto;
+import com.orange_infinity.vkhack.model.entity.dto.User;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -13,12 +14,11 @@ import retrofit2.http.Path;
 public interface RequestsApi {
 
     @POST("/auth/users")
-    public Call<String> registration(@Body RegistrationDto registrationDto);
+    public Call<User> registration(@Body RegistrationDto registrationDto);
 
     @PUT("/users/edit/{id}")
-    public Call<String> sendEditedData(
+    public Call<User> sendEditedData(
             @Header("Authorization") String authKey,
             @Body EditedData data,
             @Path("id") int id);
-
 }

@@ -9,7 +9,15 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.orange_infinity.vkhack.R;
@@ -17,6 +25,12 @@ import com.orange_infinity.vkhack.data.preferences.SessionManager;
 import com.orange_infinity.vkhack.model.entity.dto.RegistrationDto;
 import com.orange_infinity.vkhack.utils.StringUtils;
 import com.orange_infinity.vkhack.web.WebController;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static com.orange_infinity.vkhack.utils.StringUtils.MAIN_TAG;
 
@@ -70,10 +84,10 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     }
 
     private boolean createAccount() {
-        String login = editLogin.getText().toString().trim();
-        String password = editPassword.getText().toString();
-        String name = editName.getText().toString();
-        String surname = editSurname.getText().toString();
+        final String login = editLogin.getText().toString().trim(); // Почта
+        final String password = editPassword.getText().toString();
+        final String name = editName.getText().toString();
+        final String surname = editSurname.getText().toString();
 
         if (!StringUtils.isValidEmail(login)) {
             return false;
@@ -85,16 +99,16 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         regDto.setPassword(password);
         regDto.setName(name);
         regDto.setSurname(surname);
+        regDto.setBdate("");
+        regDto.setAbout_me("");
+        regDto.setPhone_number("");
+        regDto.setKey_abilities("");
 
-        webController.registry(regDto);
-        Gson gson = new GsonBuilder()
-                .setPrettyPrinting()
-                .create();
+        webController.registry(regDto, getApplicationContext()); // запрос регистрации
 
-        String json = gson.toJson(regDto);
-        Log.d(MAIN_TAG, "You are creating a new account, login: " + regDto.getEmail() + ", password: "
-                + regDto.getPassword() + ", username: " + regDto.getName() + " " + regDto.getSurname());
-        Log.d(MAIN_TAG, "json: " + json);
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+        Log.d(MAIN_TAG, "You are creating a new account");
         return true;
     }
 }

@@ -18,6 +18,7 @@ public class SessionManager {
     private static final String PROF_FIELD_KEY = "profField";
     private static final String LOGIN_KEY = "login";
     private static final String NICKNAME_KEY = "nickname";
+    private static final String ID_KEY = "id";
 
     // Инициализация SharedPreferences
     public SessionManager(Context context){
@@ -43,6 +44,11 @@ public class SessionManager {
         editor.apply();
     }
 
+    public static void saveId(int id){
+        editor.putInt(ID_KEY, id); // Дата рождения
+        editor.apply();
+    }
+
     public static boolean isUserAuth() {
         return sharedPreferences.getBoolean(IS_PLAYER_AUTH_KEY, false);
     }
@@ -51,6 +57,8 @@ public class SessionManager {
         editor.putBoolean(IS_PLAYER_AUTH_KEY, false);
         editor.apply();
     }
+
+
 
     // Получение имени и фамилии
     public static String getNickName(){
@@ -64,6 +72,10 @@ public class SessionManager {
 
     public static String getPassword() {
         return sharedPreferences.getString(PASSWORD_KEY, null);
+    }
+
+    public static int getId() {
+        return sharedPreferences.getInt(ID_KEY, 0);
     }
 
 }

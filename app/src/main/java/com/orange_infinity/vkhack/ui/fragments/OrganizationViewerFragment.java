@@ -28,7 +28,7 @@ public class OrganizationViewerFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_organization_viewer, container, false);
+        View v = inflater.inflate(R.layout.fragment_recycler_viewer, container, false);
         orgNames.add("Organization 1");
         orgNames.add("Organization 2");
         orgNames.add("Organization 3");
@@ -36,7 +36,6 @@ public class OrganizationViewerFragment extends Fragment {
         orgNames.add("Organization 5");
 
         setUpRecycler(v);
-
         return v;
     }
 

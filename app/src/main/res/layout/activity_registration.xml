@@ -24,6 +24,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             android:hint="@string/edit_name"
+            android:hint="Введите ваше имя"
             android:inputType="text" />
 
         <EditText
@@ -33,6 +34,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
+            android:hint="Введите фамилию"
             android:hint="@string/edit_surname"
             android:inputType="text" />
 

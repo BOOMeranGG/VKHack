@@ -1,10 +1,10 @@
-package com.orange_infinity.vkhack;
+package com.orange_infinity.vkhack.ui.activities;
 
 import android.os.Bundle;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.orange_infinity.vkhack.ui.activities.BaseActivity;
+import com.orange_infinity.vkhack.R;
 
 import java.util.ArrayList;
 import java.util.List;

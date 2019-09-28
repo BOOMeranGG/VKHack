@@ -8,7 +8,6 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.orange_infinity.vkhack.MainActivity;
 import com.orange_infinity.vkhack.R;
 import com.orange_infinity.vkhack.utils.StringUtils;
 

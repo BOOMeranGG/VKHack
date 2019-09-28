@@ -3,7 +3,6 @@ package com.orange_infinity.vkhack.ui.activities
 import android.content.Intent
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.orange_infinity.vkhack.MainActivity
 import com.orange_infinity.vkhack.R
 import kotlinx.android.synthetic.main.bottom_navigation_view.*
 

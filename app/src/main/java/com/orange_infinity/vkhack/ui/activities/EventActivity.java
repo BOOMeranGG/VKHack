@@ -2,7 +2,11 @@ package com.orange_infinity.vkhack.ui.activities;
 
 import android.os.Bundle;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+
 import com.orange_infinity.vkhack.R;
+import com.orange_infinity.vkhack.ui.fragments.OrganizationViewerFragment;
 
 public class EventActivity extends BaseActivity {
 
@@ -16,5 +20,13 @@ public class EventActivity extends BaseActivity {
         setContentView(R.layout.activity_event);
 
         setUpBottomNavigation();
+        FragmentManager fm = getSupportFragmentManager();
+        Fragment fragment = fm.findFragmentById(R.id.organizationListContainer);
+        if (fragment == null) {
+            fragment = new OrganizationViewerFragment();
+            fm.beginTransaction()
+                    .add(R.id.organizationListContainer, fragment)
+                    .commit();
+        }
     }
 }

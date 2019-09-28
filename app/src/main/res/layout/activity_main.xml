@@ -199,6 +199,48 @@
                     app:layout_constraintEnd_toEndOf="parent"/>
 
                 <TextView
+                    android:id="@+id/tvPhone"
+                    style="@style/standard_text"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:text="Телефон"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/editEmail" />
+
+                <EditText
+                    android:id="@+id/editPhone"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="+79279213088"
+                    android:inputType="phone"
+                    android:layout_marginEnd="24dp"
+                    app:layout_constraintTop_toBottomOf="@id/tvPhone"
+                    app:layout_constraintStart_toStartOf="@id/tvPhone"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <TextView
+                    android:id="@+id/tvGeneralInfo"
+                    style="@style/standard_text"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:text="Общая информация"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/editPhone" />
+
+                <EditText
+                    android:id="@+id/editGeneralInfo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Бла бла бла бла бла"
+                    android:inputType="phone"
+                    android:layout_marginEnd="24dp"
+                    app:layout_constraintTop_toBottomOf="@id/tvGeneralInfo"
+                    app:layout_constraintStart_toStartOf="@id/tvGeneralInfo"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <TextView
                     android:id="@+id/tvSkills"
                     style="@style/standard_text"
                     android:layout_marginStart="24dp"
@@ -206,7 +248,7 @@
                     android:text="@string/skills"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/editEmail" />
+                    app:layout_constraintTop_toBottomOf="@id/editGeneralInfo" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

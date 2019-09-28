@@ -12,7 +12,6 @@ import android.widget.EditText;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.orange_infinity.vkhack.MainActivity;
 import com.orange_infinity.vkhack.R;
 import com.orange_infinity.vkhack.data.preferences.UserPreferences;
 import com.orange_infinity.vkhack.model.entity.dto.RegistrationDto;

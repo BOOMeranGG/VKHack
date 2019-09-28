@@ -7,4 +7,8 @@
     <string name="edit_nickname">Введите имя и фамилию</string>
     <string name="name">Имя</string>
     <string name="surname">Фамилия</string>
+    <string name="date_of_birthday">Дата рождения</string>
+    <string name="prof_fields">Сфера деятельности</string>
+    <string name="two_words_about_yourself">Пару слов о себе</string>
+    <string name="skills">Навыки</string>
 </resources>

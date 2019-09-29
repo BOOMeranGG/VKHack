@@ -29,7 +29,7 @@ public class OrganizationViewerFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_recycler_viewer, container, false);
-        orgNames.add("Organization 1");
+        orgNames.add("Политехнический музей");
         orgNames.add("Organization 2");
         orgNames.add("Organization 3");
         orgNames.add("Organization 4");
@@ -62,7 +62,7 @@ public class OrganizationViewerFragment extends Fragment {
             tvOrganizationName.setText(orgName);
 
             ImageView imgOrganization = organizationView.findViewById(R.id.imgOrganization);
-            imgOrganization.setImageDrawable(getContext().getResources().getDrawable(R.drawable.standard_organization));
+            imgOrganization.setImageDrawable(getContext().getResources().getDrawable(R.drawable.organization));
         }
     }
 

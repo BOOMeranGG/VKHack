@@ -11,7 +11,7 @@
         android:layout_height="240dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:src="@drawable/standard_event"/>
+        android:src="@drawable/event"/>
 
     <TextView
         android:id="@+id/tvEventName"

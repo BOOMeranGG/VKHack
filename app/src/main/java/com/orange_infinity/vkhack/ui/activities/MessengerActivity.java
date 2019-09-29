@@ -1,6 +1,9 @@
 package com.orange_infinity.vkhack.ui.activities;
 
-import android.net.Uri;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
@@ -14,7 +17,6 @@ import com.orange_infinity.vkhack.model.chat.Message;
 import com.squareup.picasso.Picasso;
 import com.stfalcon.chatkit.commons.ImageLoader;
 import com.stfalcon.chatkit.commons.models.IMessage;
-import com.stfalcon.chatkit.commons.models.MessageContentType;
 import com.stfalcon.chatkit.messages.MessageInput;
 import com.stfalcon.chatkit.messages.MessagesList;
 import com.stfalcon.chatkit.messages.MessagesListAdapter;
@@ -28,6 +30,7 @@ import static com.orange_infinity.vkhack.utils.StringUtils.MAIN_TAG;
 public class MessengerActivity extends AppCompatActivity implements MessageInput.InputListener, MessagesListAdapter.OnMessageClickListener {
 
     private ChatUser user = new ChatUser(UUID.randomUUID().toString(), "Jack");
+    private ChatUser yourself = new ChatUser(UUID.randomUUID().toString(), "You");
     private List<Message> historyMessage = new ArrayList<>();
     private MessagesList messagesList;
     private MessagesListAdapter adapter;
@@ -62,13 +65,16 @@ public class MessengerActivity extends AppCompatActivity implements MessageInput
 
     @Override
     public boolean onSubmit(CharSequence input) {
-        Message message = new Message(user, input.toString(), "1");
+        Message messageText = new Message(yourself, input.toString(), UUID.randomUUID().toString());
+        Message messagePhoto = new Message(yourself, input.toString(), UUID.randomUUID().toString());
+        messagePhoto.setImageUrl("https://otzyv-shop.ru/components/com_jshopping/files/img_products/full_google-maps.png");
 
-        messagesList.setAdapter(adapter);
-        historyMessage.add(message);
-        drawAllReports();
-        //adapter.addToStart(message, false);
+        adapter.addToStart(messageText, true);
+        adapter.addToStart(messagePhoto, true);
         this.input.getInputEditText().setText("");
+//        double latitude = location.getLatitude(); // широта
+//        double longitude = location.getLongitude(); // долгота
+//        Log.d(MAIN_TAG, "Latitude = " + latitude + " Longitude = " + longitude);
 
         return false;
     }

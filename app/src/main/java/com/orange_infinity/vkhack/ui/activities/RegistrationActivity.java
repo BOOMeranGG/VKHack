@@ -50,7 +50,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
 
     private void checkIsUserAuthorized() {
         if (UserPreferences.isUserAuth(this)) {
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, EditProfileActivity.class);
             startActivity(intent);
             finish();
         }
@@ -60,7 +60,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     public void onClick(View v) {
         if (v.getId() == R.id.btnRegistration) {
             if (createAccount()) {
-                Intent intent = new Intent(this, MainActivity.class);
+                Intent intent = new Intent(this, EditProfileActivity.class);
                 startActivity(intent);
                 finish();
             }

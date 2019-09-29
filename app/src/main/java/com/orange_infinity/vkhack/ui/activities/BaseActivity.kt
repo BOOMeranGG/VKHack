@@ -2,6 +2,7 @@ package com.orange_infinity.vkhack.ui.activities
 
 import android.content.Intent
 import android.util.Log
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.common.api.CommonStatusCodes
 import com.google.android.gms.vision.barcode.Barcode
@@ -16,6 +17,10 @@ private const val RC_BARCODE_CAPTURE = 1
 abstract class BaseActivity(private val navNumber: Int) : AppCompatActivity() {
 
     fun setUpBottomNavigation() {
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
         bottom_navigation_view.setIconSize(29f, 29f)
         bottom_navigation_view.setTextVisibility(false)
         bottom_navigation_view.isItemHorizontalTranslationEnabled = false

@@ -25,16 +25,16 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         close_image = findViewById(R.id.close_image);
         close_image.setOnClickListener(this);
 
-        skills.add("Hello");
-        skills.add("Kitty");
-        skills.add("Motherfucker");
-        skills.add("fu*ck");
-        skills.add("mamaamakriminak");
-        skills.add("255");
+        skills.add("Programming");
+        skills.add("Java");
+        skills.add("Знание англа");
+        skills.add("Вод. права");
+        skills.add("Стрессоучстойчивый");
+        skills.add("Быстро считаю");
 
-        LinearLayout linearLayout = findViewById(R.id.skill1);
-        TextView tv1 = linearLayout.findViewById(R.id.tvSkill);
-        tv1.setText("PID*R");
+//        LinearLayout linearLayout = findViewById(R.id.skill1);
+//        TextView tv1 = linearLayout.findViewById(R.id.tvSkill);
+//        tv1.setText("NOPE");
     }
 
     @Override

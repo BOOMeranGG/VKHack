@@ -56,6 +56,8 @@
         style="@style/standard_text"
         android:text="2"
         android:textSize="20sp"
+        android:paddingEnd="24dp"
+        android:paddingStart="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/groupNum" />
@@ -86,6 +88,8 @@
         android:layout_height="wrap_content"
         android:text="Интересов"
         android:textSize="12sp"
+        android:paddingEnd="24dp"
+        android:paddingStart="24dp"
         app:layout_constraintEnd_toStartOf="@id/endNum"
         app:layout_constraintStart_toEndOf="@id/groupNum"
         app:layout_constraintTop_toTopOf="@id/tvGroup" />

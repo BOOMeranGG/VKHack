@@ -29,9 +29,9 @@ public class EventViewerFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_recycler_viewer, container, false);
 
-        EventDto eventDto1 = new EventDto("Man's Party", "27.09 - 29.09", "Best party ever!");
-        EventDto eventDto2 = new EventDto("Собрание гос думы", "13.11 - 29.11", "Типичный день, листай дальше");
-        EventDto eventDto3 = new EventDto("Студенты МГУПи идут в курилку", "01.01 - 31.12", "Паша: да я вообще-то курить бросаю");
+        EventDto eventDto1 = new EventDto("Открытие музея", "27.09 - 29.09", "Best party ever!");
+        EventDto eventDto2 = new EventDto("Форум \"Молодая волна 2019\"", "13.11 - 29.11", "Ничего необычного, листай дальше");
+        EventDto eventDto3 = new EventDto("Награждение на премию Дарвина", "01.01 - 31.12", "Пфф, да я так же умею, смотри, щас покажу!");
         EventDto eventDto4 = new EventDto("VK Hack 2019", "27.09 - 29.09", "Spoiler: Orange is winner");
 
         events.add(eventDto1);

@@ -56,4 +56,5 @@ dependencies {
     implementation 'com.github.stfalcon:chatkit:0.3.3'
     implementation fileTree(dir: 'libs', include: ['*.aar', '*.jar'], exclude: [])
     implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'androidmads.library.qrgenearator:QRGenearator:1.0.3'
 }

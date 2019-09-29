@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activities.MainActivity">
+    tools:context=".ui.activities.EditProfileActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -26,7 +26,7 @@
 
             <TextView
                 style="@style/toolbar_title"
-                android:text="Profile"
+                android:text="Edit profile"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@id/close_image"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -316,9 +316,5 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
-
-    <include
-        android:id="@+id/navigationView"
-        layout="@layout/bottom_navigation_view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

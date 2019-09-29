@@ -38,7 +38,7 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
             if (!StringUtils.isValidEmail(login)) {
                 return;
             }
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, EditProfileActivity.class);
             startActivity(intent);
         }
     }

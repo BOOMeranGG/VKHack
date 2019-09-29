@@ -33,7 +33,7 @@ abstract class BaseActivity(private val navNumber: Int) : AppCompatActivity() {
 
         bottom_navigation_view.setOnNavigationItemSelectedListener {
             val nextActivity = when (it.itemId) {
-                R.id.nav_item_home -> MainActivity::class.java
+                R.id.nav_item_home -> ProfileActivity::class.java
                 R.id.nav_item_search -> EventActivity::class.java
                 R.id.nav_item_message -> MessengerActivity::class.java
                 R.id.nav_item_scanner -> {

@@ -1,31 +1,33 @@
 package com.orange_infinity.vkhack.web;
 
+import com.orange_infinity.vkhack.web.endpoints.ChatApi;
 import com.orange_infinity.vkhack.web.endpoints.RequestsApi;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class NetworkService {
+public class NetworkServiceChat {
 
-    private static final String BASE_URL = "https://vkhack-app.herokuapp.com";
-    private static NetworkService instance;
+    private static final String BASE_URL = "http://99aa95f9.ngrok.io";
+    private static NetworkServiceChat instance;
     private Retrofit retrofit;
 
-    private NetworkService() {
+    private NetworkServiceChat() {
         retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
     }
 
-    public static NetworkService getInstance() {
+    public static NetworkServiceChat getInstance() {
         if (instance == null) {
-            instance = new NetworkService();
+            instance = new NetworkServiceChat();
         }
         return instance;
     }
 
-    public RequestsApi getRegistrationApi() {
-        return retrofit.create(RequestsApi.class);
+    public ChatApi getConnectChatApi() {
+        return retrofit.create(ChatApi.class);
     }
+
 }

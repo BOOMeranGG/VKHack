@@ -6,6 +6,8 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.orange_infinity.vkhack.data.preferences.SessionManager;
+import com.orange_infinity.vkhack.model.entity.dto.ChatUrl;
+import com.orange_infinity.vkhack.model.entity.dto.ConnectData;
 import com.orange_infinity.vkhack.model.entity.dto.EditedData;
 import com.orange_infinity.vkhack.model.entity.dto.RegistrationDto;
 import com.orange_infinity.vkhack.model.entity.dto.User;
@@ -45,6 +47,31 @@ public class WebController {
 
                     @Override
                     public void onFailure(@NonNull Call<User> call, @NonNull Throwable t) {
+                        Log.d(MAIN_TAG, "Connect is incorrect ;( " + t.getLocalizedMessage());
+                        t.printStackTrace();
+                    }
+                });
+    }
+
+    public void getUrl(ConnectData data, final Context context) {
+        NetworkServiceChat.getInstance()
+                .getConnectChatApi()
+                .connectChat(data)
+                .enqueue(new Callback<ChatUrl>() {
+                    @Override
+                    public void onResponse(@NonNull Call<ChatUrl> call, @NonNull Response<ChatUrl> response) {
+                        ChatUrl responseStr = response.body();
+
+                        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+                        String json = gson.toJson(responseStr);
+
+                        Log.d(MAIN_TAG, "Connect is correct! Response: " + json + ", response code: " + response.code());
+
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<ChatUrl> call, @NonNull Throwable t) {
                         Log.d(MAIN_TAG, "Connect is incorrect ;( " + t.getLocalizedMessage());
                         t.printStackTrace();
                     }

@@ -19,6 +19,7 @@ public class SessionManager {
     private static final String LOGIN_KEY = "login";
     private static final String NICKNAME_KEY = "nickname";
     private static final String ID_KEY = "id";
+    private static final String UID_KEY = "uid";
 
     // Инициализация SharedPreferences
     public SessionManager(Context context){
@@ -44,8 +45,15 @@ public class SessionManager {
         editor.apply();
     }
 
+    // Сохранение ID ользователя
     public static void saveId(int id){
         editor.putInt(ID_KEY, id); // Дата рождения
+        editor.apply();
+    }
+
+    // Сохранение уникального ID мероприятия (полученного из QR Code)
+    public static void saveUidEvent(String uid){
+        editor.putString(UID_KEY, uid);
         editor.apply();
     }
 
@@ -57,8 +65,6 @@ public class SessionManager {
         editor.putBoolean(IS_PLAYER_AUTH_KEY, false);
         editor.apply();
     }
-
-
 
     // Получение имени и фамилии
     public static String getNickName(){
@@ -76,6 +82,10 @@ public class SessionManager {
 
     public static int getId() {
         return sharedPreferences.getInt(ID_KEY, 0);
+    }
+
+    public static String getUID() {
+        return sharedPreferences.getString(UID_KEY, null);
     }
 
 }

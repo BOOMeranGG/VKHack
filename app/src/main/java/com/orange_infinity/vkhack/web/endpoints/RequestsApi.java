@@ -1,5 +1,7 @@
 package com.orange_infinity.vkhack.web.endpoints;
 
+import com.orange_infinity.vkhack.model.entity.dto.ChatUrl;
+import com.orange_infinity.vkhack.model.entity.dto.ConnectData;
 import com.orange_infinity.vkhack.model.entity.dto.EditedData;
 import com.orange_infinity.vkhack.model.entity.dto.RegistrationDto;
 import com.orange_infinity.vkhack.model.entity.dto.User;
